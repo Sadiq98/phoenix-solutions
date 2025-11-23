@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/autoplay';
+
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
