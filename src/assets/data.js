@@ -249,49 +249,83 @@ cta: "View All Demos",
 
 export const homeAutomationData = {
   hero: {
-    title: "Smart Home Automation",
-    subtitle: "Transform Your Living Space",
-    description: "Experience the future of home living with intelligent automation solutions that enhance comfort, security, and energy efficiency.",
-    image: "https://images.unsplash.com/photo-1707733260992-73ff6dbed163?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxob21lJTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NjM1Nzc1NzV8MA&ixlib=rb-4.1.0&q=85"
+    badge: "Phoenix Private",
+    title: "The Art of Invisible Luxury",
+    subtitle: "Orchestrate your sanctuary with a single touch.",
+    description: "Experience the seamless convergence of architectural design and artificial intelligence. We transform residences into living entities that anticipate your needs, adapting lighting, climate, and security to your rhythm of life.",
+    cta: "Begin Your Journey",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" // High-end dark modern living room
   },
-  solutions: [
+  
+  features: [
     {
       id: 1,
-      title: "Smart Lighting",
-      description: "Voice-controlled and automated lighting systems that adapt to your lifestyle.",
-      image: "https://images.unsplash.com/photo-1608377205619-03a0b4c4e270?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxob21lJTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NjM1Nzc1NzV8MA&ixlib=rb-4.1.0&q=85",
-      features: ["Voice Control", "Scheduling", "Energy Saving", "Remote Access"]
+      title: "Circadian Lighting",
+      description: "Lighting that mimics the sun, adjusting automatically to enhance your mood and sleep cycles.",
+      icon: "Zap"
     },
     {
       id: 2,
-      title: "Security Systems",
-      description: "Advanced security with smart locks, cameras, and motion sensors.",
-      image: "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxob21lJTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NjM1Nzc1NzV8MA&ixlib=rb-4.1.0&q=85",
-      features: ["Smart Locks", "HD Cameras", "Motion Detection", "Real-time Alerts"]
+      title: "Biometric Security",
+      description: "Fortress-grade protection with facial recognition and perimeter AI analytics.",
+      icon: "Shield"
     },
     {
       id: 3,
-      title: "Climate Control",
-      description: "Intelligent temperature and air quality management for optimal comfort.",
-      image: "https://images.unsplash.com/photo-1712599609774-172848255a9f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHw0fHxJb1QlMjBkZXZpY2VzfGVufDB8fHx8MTc2MzU3NzU3MHww&ixlib=rb-4.1.0&q=85",
-      features: ["Smart Thermostats", "Air Quality Monitoring", "Auto-adjustment", "Energy Reports"]
+      title: "Climate Intelligence",
+      description: "Hyper-localized temperature control that learns your preferences per room.",
+      icon: "Thermometer"
     },
     {
       id: 4,
-      title: "Voice Assistants",
-      description: "Seamless integration with Google Home, Alexa, and Siri.",
-      image: "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxzbWFydCUyMGhvbWV8ZW58MHx8fHwxNzYzNTc3NTY0fDA&ixlib=rb-4.1.0&q=85",
-      features: ["Multi-platform Support", "Natural Commands", "Scene Control", "Routine Automation"]
+      title: "Immersive Audio",
+      description: "Invisible speakers embedded into walls for concert-hall acoustics without the clutter.",
+      icon: "Mic" // Using Mic icon for voice/audio context
     }
   ],
-  products: [
-    { id: 1, name: "Smart Hub Pro", category: "Control Center", price: "₹15,999" },
-    { id: 2, name: "WiFi Smart Bulb Pack", category: "Lighting", price: "₹2,499" },
-    { id: 3, name: "Smart Door Lock", category: "Security", price: "₹12,999" },
-    { id: 4, name: "HD Security Camera", category: "Security", price: "₹8,999" },
-    { id: 5, name: "Smart Thermostat", category: "Climate", price: "₹9,999" },
-    { id: 6, name: "Motion Sensor Pack", category: "Automation", price: "₹3,999" }
-  ]
+
+  solutions: [
+    {
+      id: 1,
+      title: "Moodscaping",
+      description: "Transform your atmosphere instantly. From 'Dinner Party' warmth to 'Cinema' darkness, control a thousand lights as one.",
+      image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=2134&auto=format&fit=crop", // Luxury chandelier/lighting
+      link: "/home-automation/lighting"
+    },
+    {
+      id: 2,
+      title: "Private Cinema",
+      description: "4K laser projection, Dolby Atmos sound, and acoustic isolation. The ultimate theater experience, at home.",
+      image: "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=1779&auto=format&fit=crop", // Home theater
+      link: "/home-automation/cinema"
+    },
+    {
+      id: 3,
+      title: "Perimeter Defense",
+      description: "Integrated gate control, license plate recognition, and night-vision surveillance for absolute peace of mind.",
+      image: "https://images.unsplash.com/photo-1558036117-15db5275252b?q=80&w=2070&auto=format&fit=crop", // Modern gate/exterior
+      link: "/home-automation/security"
+    },
+    {
+      id: 4,
+      title: "Curated Climate",
+      description: "Invisible HVAC systems that purify air quality and maintain humidity levels for art preservation and comfort.",
+      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop", // Clean modern interior
+      link: "/home-automation/climate"
+    }
+  ],
+
+  showcase: {
+    title: "Elegance in Motion",
+    subtitle: "See how our systems blend into the finest interiors.",
+    video: "https://videos.pexels.com/video-files/7578544/7578544-uhd_2160_3840_25fps.mp4" // Placeholder luxury interior video
+  },
+
+  cta: {
+    title: "Elevate Your Living Standard",
+    subtitle: "Our architects are ready to design your bespoke ecosystem.",
+    button: "Book Private Consultation"
+  }
 };
 
 
