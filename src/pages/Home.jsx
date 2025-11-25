@@ -8,59 +8,23 @@ import { Autoplay, EffectFade, Parallax } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-import Footer from '../components/Footer'; 
+import { phoenixData } from '../assets/data';
 
 import {
-  ArrowRight, CheckCircle2, Play, Zap, Shield, Smartphone, 
-  Mic, Wind, Sun, ChevronDown, MoveRight, Globe, Cpu, Server, Lock
+  ArrowRight, CheckCircle2, Play, ChevronDown, MoveRight, 
+  Globe, Shield, Calendar, Star, Quote,
+  Zap, Server, Smartphone, Mic, Wifi, Settings // Icons for features
 } from "lucide-react";
 
-// --- RICH DATA (Integrated for Immediate Use) ---
-const phoenixData = {
-  hero: {
-    badge: "Phoenix Solutions",
-    title: "The Art of Invisible Intelligence.",
-    subtitle: "Orchestrating lifestyle & logic.",
-    images: [
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop", // Luxury Living
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop", // Tech Abstract
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"  // Dark Interior
-    ]
-  },
-  stats: [
-    { value: "15+", label: "Years of Excellence" },
-    { value: "500+", label: "Premium Estates" },
-    { value: "24/7", label: "Global Support" },
-    { value: "100%", label: "Uptime Guarantee" }
-  ],
-  divisions: [
-    {
-      id: 1,
-      title: "Phoenix Home",
-      subtitle: "Residential Automation",
-      desc: "Transforming residences into living entities. Lighting, climate, and security that anticipate your rhythm.",
-      image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=2134&auto=format&fit=crop",
-      link: "/automation",
-      icon: Zap,
-      color: "text-orange-600"
-    },
-    {
-      id: 2,
-      title: "Phoenix Cyber",
-      subtitle: "Enterprise Infrastructure",
-      desc: "Fortifying the digital backbone of modern business. Cloud architecture, cybersecurity, and logistics.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
-      link: "/it-services",
-      icon: Server,
-      color: "text-blue-600"
-    }
-  ],
-  collection: [
-    { title: "Luminous Touch", cat: "Hardware", img: "https://images.unsplash.com/photo-1550525811-e5869dd03032?q=80&w=2065&auto=format&fit=crop" },
-    { title: "Secure Perimeter", cat: "Security", img: "https://images.unsplash.com/photo-1558036117-15db5275252b?q=80&w=2070&auto=format&fit=crop" },
-    { title: "Cloud Mesh", cat: "Networking", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" },
-    { title: "Silent Motion", cat: "Curtains", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" }
-  ]
+// --- ICON MAPPING FOR DYNAMIC DATA ---
+const iconMap = {
+  Settings: Settings,
+  Wifi: Wifi,
+  Mic: Mic,
+  Smartphone: Smartphone,
+  Zap: Zap,
+  Server: Server,
+  Shield: Shield
 };
 
 // --- COMPONENTS ---
@@ -100,10 +64,23 @@ const PartnerMarquee = () => (
   </div>
 );
 
+// --- ANIMATION UTILS ---
+const FadeIn = ({ children, delay = 0, className = "" }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay, ease: "easeOut" }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
+
 const Home = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   
-  // Parallax Logic for Contact Section
+  // Parallax Logic
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -117,130 +94,208 @@ const Home = () => {
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    // Base Theme: Warm Alabaster / Stone-50
     <div className="min-h-screen bg-[#FAFAF9] text-stone-900 font-sans overflow-x-hidden selection:bg-orange-200 selection:text-orange-900">
 
-      {/* 1. HERO: Full Screen, Editorial Typography */}
-      <section className="relative h-screen w-full overflow-hidden bg-stone-900">
-        <Swiper
-          modules={[Autoplay, EffectFade, Parallax]}
-          effect="fade"
-          speed={2500}
-          autoplay={{ delay: 6000, disableOnInteraction: false }}
-          loop={true}
-          className="w-full h-full"
-        >
-          {phoenixData.hero.images.map((src, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative w-full h-full">
-                <motion.img 
-                  initial={{ scale: 1.15 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 10, ease: "linear" }}
-                  src={src} 
-                  alt="Luxury Background" 
-                  className="w-full h-full object-cover opacity-70" 
-                />
-                {/* Cinematic Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      {/* 1. HERO */}
+      <section className="relative h-250 w-full flex items-center justify-center overflow-hidden bg-black">
+        
+        {/* Background Slider */}
+        <div className="absolute inset-0">
+          <Swiper
+            modules={[Autoplay, EffectFade, Parallax]}
+            effect="fade"
+            speed={2500}
+            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            loop={true}
+            className="w-full h-full"
+          >
+            {phoenixData.hero.images.map((src, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative w-full h-full">
+                  <motion.img 
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 10, ease: "linear" }}
+                    src={src} 
+                    alt="Luxury Background" 
+                    className="w-full h-full object-cover opacity-80" 
+                  />
+                  {/* Cinematic Gradients from your request */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30" />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
-        <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
-          <div className="max-w-5xl">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              className="inline-flex items-center gap-4 mb-8"
-            >
-               <div className="h-[2px] w-16 bg-orange-500" />
-               <span className="text-orange-50 font-bold tracking-[0.4em] uppercase text-xs">
+        {/* Centered Content */}
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+          <FadeIn>
+            <div className="mb-8 inline-block border border-white/20 backdrop-blur-md px-8 py-2 rounded-full shadow-2xl">
+              <span className="text-md font-bold tracking-[0.4em] uppercase text-white">
                 {phoenixData.hero.badge}
               </span>
-            </motion.div>
-
-            <motion.h1 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-6xl md:text-8xl lg:text-9xl font-serif text-white mb-8 leading-[1] tracking-tighter"
-            >
-              The Art of <br/>
-              <span className="italic font-light text-white/90">Invisible Intelligence.</span>
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="text-xl md:text-2xl text-stone-300 font-light mb-12 max-w-lg leading-relaxed"
-            >
-              {phoenixData.hero.subtitle}
-            </motion.p>
-
-            <div className="flex gap-6">
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                onClick={() => document.getElementById("divisions").scrollIntoView({ behavior: "smooth" })}
-                className="px-12 py-5 bg-white text-stone-900 font-bold text-sm tracking-[0.2em] uppercase hover:bg-orange-600 hover:text-white transition-all duration-500"
-              >
-                Explore
-              </motion.button>
             </div>
-          </div>
-        </div>
+          </FadeIn>
+          
+          <FadeIn delay={0.2}>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-light mb-8 tracking-tighter text-white">
+              {phoenixData.hero.title.split(' ').slice(0, 3).join(' ')} <span className="font-serif italic text-orange-500">
+                {phoenixData.hero.title.split(' ')[3]} 
+              </span>
+            </h1>
+          </FadeIn>
 
-        {/* Footer Stats in Hero */}
-        <div className="absolute bottom-0 w-full z-30 border-t border-white/10 bg-black/30 backdrop-blur-md hidden md:block">
-          <div className="px-6 md:px-12 lg:px-24 py-8 flex justify-between items-center">
-             <div className="flex gap-16">
-                {phoenixData.stats.map((stat, i) => (
-                  <div key={i}>
-                    <div className="text-3xl font-serif text-white">{stat.value}</div>
-                    <div className="text-[10px] uppercase tracking-widest text-stone-400">{stat.label}</div>
+          <FadeIn delay={0.4}>
+            <p className="text-xl md:text-2xl text-stone-300 max-w-2xl mx-auto font-light mb-12 leading-relaxed">
+              {phoenixData.hero.subtitle}
+            </p>
+          </FadeIn>
+          
+          {/* <FadeIn delay={0.6}>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button
+                onClick={() => document.getElementById("divisions").scrollIntoView({ behavior: "smooth" })}
+                className="px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold tracking-widest uppercase text-xs transition-all duration-500 shadow-lg shadow-orange-900/50"
+              >
+                {phoenixData.hero.cta}
+              </button>
+              <button
+                className="px-10 py-4 bg-transparent border border-white/30 hover:bg-white hover:text-black text-white font-bold tracking-widest uppercase text-xs transition-all duration-500 backdrop-blur-sm"
+              >
+                View Showreel
+              </button>
+            </div>
+          </FadeIn> */}
+                {/* Floating Stats - Glassmorphism */}
+       {/* <div className="absolute bottom-0 right-0 left-0 z-20 border-t border-white/5 bg-stone-50/40 backdrop-blur-xl">          <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-24 py-10">
+           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+              <div className="flex gap-12 md:gap-24">
+                {phoenixData.stats.map((stat, index) => (
+                  <div key={index} className="text-left">
+                    <div className="text-3xl md:text-4xl font-light text-stone-900 mb-2 font-serif">{stat.value}</div>
+                    <div className="text-[10px] text-white uppercase tracking-[0.2em]">{stat.label}</div>
                   </div>
                 ))}
-             </div>
-             <ChevronDown className="text-white/50 animate-bounce" size={32} />
+              </div>
+              <ChevronDown className="animate-bounce text-stone-500 hidden md:block" size={32} />
+            </div>
+          </div>
+        </div> */}
+
+        
+        </div>
+      </section>
+
+
+      {/* 2. FEATURES: Floating Tiles */}
+      <section className="relative z-30 -mt-32 px-6 md:px-12 lg:px-24 pb-24">
+        <div className="max-w-[1800px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {phoenixData.features.map((feat, idx) => {
+
+              const IconComponent = iconMap[feat.icon.displayName]; 
+
+              return (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.6 }}
+                  className="bg-white p-10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-b-4 border-transparent hover:border-orange-600 transition-all duration-300 group hover:-translate-y-2"
+                >
+                  <div className="w-16 h-16 rounded-full bg-stone-50 flex items-center justify-center mb-8 group-hover:bg-orange-50 transition-colors">
+                    <IconComponent className="text-stone-400 group-hover:text-orange-600 transition-colors" size={32} />
+                  </div>
+                  
+                  <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-orange-600 transition-colors">
+                    {feat.title}
+                  </h3>
+                  
+                  <p className="text-sm text-stone-500 leading-relaxed font-medium tracking-wide">
+                    {feat.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 2. PHILOSOPHY: High-end text block */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#FAFAF9]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-           <div>
-              <span className="text-orange-600 font-bold text-xs tracking-[0.3em] uppercase block mb-6">Our Philosophy</span>
-              <h2 className="text-4xl md:text-6xl font-serif text-stone-900 leading-tight mb-8">
-                Technology that feels like <span className="italic text-stone-500">Magic.</span>
-              </h2>
-           </div>
-           <div>
-              <p className="text-lg text-stone-600 leading-relaxed mb-8 font-light">
-                We believe true luxury is the absence of friction. Phoenix Solutions integrates lighting, climate, and security into a unified, intuitive ecosystem that anticipates your needs before you even speak them.
-              </p>
-              <div className="h-[1px] w-full bg-stone-300" />
-              <div className="flex gap-8 mt-8">
-                 <div className="flex items-center gap-3">
-                    <Globe className="text-stone-400" />
-                    <span className="text-sm font-bold uppercase tracking-wider text-stone-900">Global Standards</span>
-                 </div>
-                 <div className="flex items-center gap-3">
-                    <Shield className="text-stone-400" />
-                    <span className="text-sm font-bold uppercase tracking-wider text-stone-900">Military Grade</span>
-                 </div>
-              </div>
-           </div>
+      {/* 3. PHILOSOPHY */}
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#FAFAF9] overflow-hidden">
+        <div className="max-w-[1800px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+             
+             {/* Left: Text */}
+             <div className="order-2 lg:order-1">
+                <FadeIn>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-[2px] w-12 bg-orange-600"></div>
+                    <span className="text-orange-600 font-bold text-xs tracking-[0.3em] uppercase">
+                      {phoenixData.philosophy.title}
+                    </span>
+                  </div>
+                  
+                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-stone-900 leading-[1.1] mb-8">
+                    {phoenixData.philosophy.heading.split("Magic").shift()} 
+                    <span className="italic text-stone-400 font-light">Magic.</span>
+                  </h2>
+                </FadeIn>
+
+                <FadeIn delay={0.2}>
+                  <p className="text-xl text-stone-600 leading-relaxed mb-10 font-light max-w-lg">
+                    {phoenixData.philosophy.description}
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-8 border-t border-stone-200 pt-8">
+                     {phoenixData.philosophy.badges.map((badge, i) => (
+                       <div key={i} className="flex items-start gap-4 group cursor-pointer">
+                          <div className="mt-1 text-stone-300 group-hover:text-orange-500 transition-colors">
+                            {i === 0 ? <Globe size={24} /> : <Shield size={24} />}
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold uppercase tracking-wider text-stone-900 mb-1">{badge}</h4>
+                            <p className="text-xs text-stone-500">Certified Excellence</p>
+                          </div>
+                       </div>
+                     ))}
+                  </div>
+                </FadeIn>
+             </div>
+
+             {/* Right: Image */}
+             <motion.div 
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1 }}
+               className="order-1 lg:order-2 relative"
+             >
+                <div className="relative z-10 rounded-sm overflow-hidden shadow-2xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" 
+                    alt="Philosophy Interior" 
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent" />
+                </div>                
+               
+             </motion.div>
+
+          </div>
         </div>
       </section>
 
-      {/* 3. THE DIVISIONS (Main Gateway) */}
+  
+      {/* 4. SERVICES */}
       <section id="divisions" className="py-24 bg-white">
         <div className="px-6 md:px-12 lg:px-24">
           {phoenixData.divisions.map((div, idx) => (
@@ -261,7 +316,7 @@ const Home = () => {
                    <p className="text-xl text-stone-300 max-w-lg mb-8 font-light">{div.desc}</p>
                    
                    <div className="flex items-center gap-4 group-hover:gap-8 transition-all duration-500">
-                      <span className={`text-sm font-bold uppercase tracking-[0.3em] ${idx === 0 ? 'text-orange-400' : 'text-cyan-400'}`}>Enter Division</span>
+                      <span className={`text-sm font-bold uppercase tracking-[0.3em] ${div.color}`}>{div.cta}</span>
                       <ArrowRight className="text-white" />
                    </div>
                 </div>
@@ -271,14 +326,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. CURATED COLLECTION: Masonry Grid */}
+      {/* 5. COLLECTION */}
       <section className="py-32 bg-[#F5F5F4]">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <SectionHeader title="Curated Ecosystems" subtitle="The Collection" align="left" />
+          <SectionHeader title={phoenixData.collection.title} subtitle={phoenixData.collection.subtitle} align="left" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {phoenixData.collection.map((item, idx) => (
-              <div key={idx} className={`group cursor-pointer relative ${idx % 2 === 0 ? 'mt-0' : 'lg:mt-24'}`}>
+            {phoenixData.collection.items.map((item, idx) => (
+              <FadeIn key={idx} delay={idx * 0.1} className={`group cursor-pointer relative ${idx % 2 === 0 ? 'mt-0' : 'lg:mt-24'}`}>
                 <div className="aspect-[3/4] overflow-hidden relative mb-6 bg-stone-200">
                   <img 
                     src={item.img} 
@@ -297,17 +352,17 @@ const Home = () => {
                     <MoveRight size={20} className="text-stone-900" />
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. CINEMATIC VIDEO INTERLUDE */}
+      {/* 6. CINEMATIC VIDEO */}
       <section className="relative h-[80vh] w-full bg-black overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 opacity-60">
            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-             <source src="https://videos.pexels.com/video-files/3205937/3205937-hd_1920_1080_25fps.mp4" type="video/mp4" />
+             <source src={phoenixData.video.source} type="video/mp4" />
            </video>
         </div>
         <div className="absolute inset-0 bg-black/40" />
@@ -316,71 +371,141 @@ const Home = () => {
            <div className="inline-block border border-white/30 rounded-full p-4 mb-8 hover:scale-110 transition-transform cursor-pointer backdrop-blur-md">
               <Play className="text-white fill-white ml-1" size={32} />
            </div>
-           <h2 className="text-5xl md:text-8xl font-serif text-white mb-6 tracking-tight">Living in Motion</h2>
-           <p className="text-stone-300 text-lg tracking-widest uppercase">Watch the Experience</p>
+           <h2 className="text-5xl md:text-8xl font-serif text-white mb-6 tracking-tight">{phoenixData.video.title}</h2>
+           <p className="text-stone-300 text-lg tracking-widest uppercase">{phoenixData.video.subtitle}</p>
+        </div>
+      </section>
+
+      {/* 7. BLOG */}
+      <section className="py-32 bg-white">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
+          <SectionHeader title={phoenixData.journal.title} subtitle={phoenixData.journal.subtitle} align="left" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {phoenixData.journal.posts.map((post) => (
+              <FadeIn key={post.id} className="group cursor-pointer">
+                <div className="aspect-[16/10] overflow-hidden mb-8 bg-stone-100">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[10%] group-hover:grayscale-0"
+                  />
+                </div>
+                <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-orange-600 mb-4">
+                  <Calendar size={14} />
+                  <span>{post.date}</span>
+                  <span className="w-1 h-1 bg-stone-300 rounded-full" />
+                  <span className="text-stone-400">{post.category}</span>
+                </div>
+                <h3 className="text-3xl font-serif text-stone-900 mb-4 group-hover:text-orange-600 transition-colors leading-tight">{post.title}</h3>
+                <p className="text-stone-500 text-sm leading-relaxed mb-6">{post.excerpt}</p>
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-stone-900 border-b border-stone-200 pb-1 w-max group-hover:border-orange-600 transition-colors">
+                  <span>Read Article</span>
+                  <ArrowRight size={14} />
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. TESTIMONIALS SLIDER */}
+      <section className="py-32 bg-[#FDFCFB] border-y border-stone-200">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <SectionHeader title={phoenixData.testimonials.title} subtitle={phoenixData.testimonials.subtitle} />
+          
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 4000 }}
+            loop={true}
+            spaceBetween={50}
+            slidesPerView={1}
+            className="w-full max-w-4xl mx-auto mt-16"
+          >
+            {phoenixData.testimonials.items.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="flex flex-col items-center">
+                  <div className="flex gap-2 mb-8 text-orange-500">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={24} fill="currentColor" />)}
+                  </div>
+                  <Quote className="text-stone-200 w-16 h-16 mb-6" />
+                  <p className="text-2xl md:text-4xl font-serif text-stone-800 leading-relaxed mb-10 italic">
+                    "{item.quote}"
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <img src={item.image} className="w-16 h-16 rounded-full object-cover" alt={item.name} />
+                    <div className="text-left">
+                      <div className="font-bold text-stone-900 text-lg">{item.name}</div>
+                      <div className="text-xs uppercase tracking-widest text-orange-600">{item.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
 
       <PartnerMarquee />
 
-      {/* 6. CONTACT: Architectural Split with Parallax */}
+      {/* 9. CONTACT */}
       <section ref={containerRef} id="contact" className="w-full flex flex-col lg:flex-row min-h-screen bg-white">
         
         {/* Left: Parallax Image */}
         <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-full overflow-hidden">
           <motion.div style={{ y }} className="absolute inset-0 h-[120%] w-full">
              <img 
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+                src={phoenixData.contact.image} 
                 className="w-full h-full object-cover"
                 alt="Concierge"
              />
           </motion.div>
           <div className="absolute inset-0 bg-stone-900/20" />
           <div className="absolute bottom-12 left-12 p-10 bg-white/90 backdrop-blur-xl shadow-2xl max-w-md">
-            <h3 className="text-3xl font-serif text-stone-900 mb-2">Ready to Upgrade?</h3>
-            <p className="text-stone-500 font-light">Book a private consultation with our lead architects.</p>
+            <h3 className="text-3xl font-serif text-stone-900 mb-2">{phoenixData.contact.intro.heading}</h3>
+            <p className="text-stone-500 font-light">{phoenixData.contact.intro.desc}</p>
           </div>
         </div>
 
         {/* Right: Clean Form */}
         <div className="lg:w-1/2 bg-white p-12 lg:p-32 flex flex-col justify-center">
           <div className="max-w-lg mx-auto w-full">
-            <SectionHeader title="Concierge Service" subtitle="Get in Touch" align="left" />
+            <SectionHeader title={phoenixData.contact.title} subtitle={phoenixData.contact.subtitle} align="left" />
             
             <form onSubmit={handleSubmit} className="space-y-12">
               <div className="group">
                 <input 
                   type="text" name="name" 
-                  value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} 
+                  value={formData.name} onChange={handleChange} 
                   className="w-full border-b border-stone-300 py-4 text-2xl font-serif text-stone-900 focus:border-orange-600 focus:outline-none transition-colors bg-transparent placeholder:text-stone-300 placeholder:font-sans" 
-                  placeholder="Your Name" required 
+                  placeholder={phoenixData.contact.form.name} required 
                 />
               </div>
               <div className="grid grid-cols-2 gap-8">
                 <input 
                   type="tel" name="phone" 
-                  value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} 
+                  value={formData.phone} onChange={handleChange} 
                   className="w-full border-b border-stone-300 py-4 text-lg text-stone-900 focus:border-orange-600 focus:outline-none transition-colors bg-transparent placeholder:text-stone-300" 
-                  placeholder="Phone" required 
+                  placeholder={phoenixData.contact.form.phone} required 
                 />
                 <input 
                   type="email" name="email" 
-                  value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} 
+                  value={formData.email} onChange={handleChange} 
                   className="w-full border-b border-stone-300 py-4 text-lg text-stone-900 focus:border-orange-600 focus:outline-none transition-colors bg-transparent placeholder:text-stone-300" 
-                  placeholder="Email" required 
+                  placeholder={phoenixData.contact.form.email} required 
                 />
               </div>
               <div>
                 <textarea 
                   name="message" rows={3}
-                  value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} 
+                  value={formData.message} onChange={handleChange} 
                   className="w-full border-b border-stone-300 py-4 text-xl text-stone-900 focus:border-orange-600 focus:outline-none transition-colors bg-transparent placeholder:text-stone-300 resize-none" 
-                  placeholder="Tell us about your vision..." required 
+                  placeholder={phoenixData.contact.form.message} required 
                 />
               </div>
 
               <button type="submit" className="group w-full py-6 bg-stone-900 text-white font-bold tracking-[0.2em] uppercase hover:bg-orange-600 transition-all duration-500 flex justify-between items-center px-8">
-                <span>Request Consultation</span>
+                <span>{phoenixData.contact.form.submit}</span>
                 <ArrowRight className="group-hover:translate-x-2 transition-transform" />
               </button>
             </form>
@@ -388,7 +513,6 @@ const Home = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

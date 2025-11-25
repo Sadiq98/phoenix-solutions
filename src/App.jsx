@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-// Import Components
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Automation from './pages/automation/HomeAutomation';
 import Services from './pages/services/ITServices';
+import Footer from './components/Footer';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -27,6 +27,7 @@ export default function App() {
     <Router>
       <Navbar />
       <AnimatedRoutes />
+      <Footer/>
     </Router>
   );
 }
