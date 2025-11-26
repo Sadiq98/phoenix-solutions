@@ -228,8 +228,8 @@ export const phoenixData = {
     }
   }
 };
-import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
-import glasSwitch from '../assets/images/glass-switch.webp';
+// import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
+// import glasSwitch from '../assets/images/glass-switch.webp';
 // ... imports
 export const homeAutomationData = {
   hero: {
@@ -237,7 +237,7 @@ export const homeAutomationData = {
     title: "Orchestrating Light & Atmosphere.",
     subtitle: "Transform your home into a responsive sanctuary with invisible technology.",
     cta: "Explore Collection",
-    videoUrl: homeAutomationVideo
+    videoUrl: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop"
   },
   categories: [
     {
@@ -251,7 +251,7 @@ export const homeAutomationData = {
       id: "touch",
       title: "Glass & Metal Interfaces",
       desc: "Replace cluttered switchboards with single, elegant capacitive touch panels. Customized icons, haptic feedback.",
-      image: glasSwitch,
+      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop",
       features: ["Tempered Glass", "Multi-Touch", "Backlit Feedback"]
     },
     {
