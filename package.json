@@ -1,5 +1,6 @@
 {
   "name": "phoenix-solutions",
+  "homepage": "https://Sadiq98.github.io/phoenix-solutions/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,12 +8,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.554.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
