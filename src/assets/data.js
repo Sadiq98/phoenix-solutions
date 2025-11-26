@@ -228,8 +228,8 @@ export const phoenixData = {
     }
   }
 };
-// import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
-// import glasSwitch from '../assets/images/glass-switch.webp';
+// // import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
+// // import glasSwitch from '../assets/images/glass-switch.webp';
 // // ... imports
 // export const homeAutomationData = {
 //   hero: {
