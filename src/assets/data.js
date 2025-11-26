@@ -228,8 +228,42 @@ export const phoenixData = {
     }
   }
 };
-import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
-import glasSwitch from '../assets/images/glass-switch.webp';
+// import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
+// import glasSwitch from '../assets/images/glass-switch.webp';
+// // ... imports
+// export const homeAutomationData = {
+//   hero: {
+//     badge: "Phoenix Living",
+//     title: "Orchestrating Light & Atmosphere.",
+//     subtitle: "Transform your home into a responsive sanctuary with invisible technology.",
+//     cta: "Explore Collection",
+//     videoUrl: homeAutomationVideo
+//   },
+//   categories: [
+//     {
+//       id: "lighting",
+//       title: "Luminous Intelligence",
+//       desc: "Tunable white lighting that mimics the sun's rhythm. From energizing daylight to warm sunset hues.",
+//       image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=1935&auto=format&fit=crop",
+//       features: ["Circadian Rhythms", "0-100% Dimming", "RGB Moods"]
+//     },
+//     {
+//       id: "touch",
+//       title: "Glass & Metal Interfaces",
+//       desc: "Replace cluttered switchboards with single, elegant capacitive touch panels. Customized icons, haptic feedback.",
+//       image: glasSwitch,
+//       features: ["Tempered Glass", "Multi-Touch", "Backlit Feedback"]
+//     },
+//     {
+//       id: "shading",
+//       title: "Silent Shading",
+//       desc: "Curtains and blinds that glide silently in sync with the time of day or your privacy needs.",
+//       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop",
+//       features: ["Ultra-Quiet Motors", "Sun-Tracking", "Voice Activation"]
+//     }
+//   ],
+// import homeAutomationVideo from '../assets/images/homeAutomationVideo2.mp4';
+// import glasSwitch from '../assets/images/glass-switch.webp';
 // ... imports
 export const homeAutomationData = {
   hero: {
@@ -237,7 +271,7 @@ export const homeAutomationData = {
     title: "Orchestrating Light & Atmosphere.",
     subtitle: "Transform your home into a responsive sanctuary with invisible technology.",
     cta: "Explore Collection",
-    videoUrl: homeAutomationVideo
+    videoUrl: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop"
   },
   categories: [
     {
@@ -251,7 +285,7 @@ export const homeAutomationData = {
       id: "touch",
       title: "Glass & Metal Interfaces",
       desc: "Replace cluttered switchboards with single, elegant capacitive touch panels. Customized icons, haptic feedback.",
-      image: glasSwitch,
+      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop",
       features: ["Tempered Glass", "Multi-Touch", "Backlit Feedback"]
     },
     {
