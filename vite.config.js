@@ -8,5 +8,5 @@ export default defineConfig({
     react()
     , tailwindcss()
   ],
-  base:"phoenix-solutions"
+  base:"/phoenix-solutions",
 })
