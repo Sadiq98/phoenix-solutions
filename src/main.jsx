@@ -9,12 +9,12 @@ const BASE_PATH = import.meta.env.VITE_SITE_PATH || "/";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <BrowserRouter basename={BASE_PATH}>
+    <BrowserRouter basename={BASE_PATH}>
       <App />
-    </BrowserRouter> */}
-    <HashRouter>
+    </BrowserRouter>
+    {/* <HashRouter>
       <App />
-    </HashRouter>
+    </HashRouter> */}
   </React.StrictMode>
 );
 
