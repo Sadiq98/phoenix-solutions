@@ -2,27 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image" href="/phoenix-solutions/assets/Logo-6yCoTIBi.png" />
+    <link rel="icon" type="image/png" href="/phoenix-solutions/assets/Logo-6yCoTIBi.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>psolutions</title>
-    <script type="text/javascript">
-  (function(l) {
-    if (l.search[1] === '/' ) {
-      var decoded = l.search.slice(1).split('&').map(function(s) { 
-        return s.replace(/~and~/g, '&') 
-      }).join('?');
-      window.history.replaceState(null, null,
-          l.pathname.slice(0, -1) + decoded + l.hash
-      );
-    }
-  }(window.location));
-</script>
-
+    <title>Phoenix Solutions</title>
     <script type="module" crossorigin src="/phoenix-solutions/assets/index-DpdAejuC.js"></script>
     <link rel="modulepreload" crossorigin href="/phoenix-solutions/assets/vendor-OWyIfSOa.js">
     <link rel="stylesheet" crossorigin href="/phoenix-solutions/assets/index-DVbTcH1U.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+
+    <!-- 1. Script for Single Page Application (SPA) routing fix -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&') 
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+
+    <!-- 2. Main React entry point -->
   </body>
 </html>
