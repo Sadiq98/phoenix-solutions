@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { aboutData } from '../../public/assets/data';
+import { aboutData } from '../data';
 import { CtaSec, FadeIn, SectionHeader } from '../components/Common';
 import { ArrowLeft, ChevronDown, Quote } from 'lucide-react';
 

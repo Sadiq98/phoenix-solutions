@@ -10,70 +10,70 @@ export const BASE_PATH = import.meta.env.VITE_SITE_PATH || "";
 
 
 
-import LAN from './Images/services/LAN.jpg';
-import homeAutomation from './Images/automation/automated-home.jpg';
-import homeMotionVideo from './Video/automation/homeAutomationVideo2.mp4';
-import RenderingPC from './Images/services/RenderingPC.jpeg';
-import CCTV from './Images/services/CCTV.jpg';
-import Biometric from './Images/services/Biometric.jpg';
-import Contract from './Images/services/Contract.jpg';
-import CobLight from './Images/automation/lights/CobLight.jpg';
-import VoiceControlImg from './Images/automation/VoiceControl.jpeg';
-import colorAutomation from './Images/automation/switches/colorAutomation.jpeg';
-import TouchCurtain from './Images/automation/switches/TouchCurtain.jpeg';
-import SmartSwitch from './Images/automation/switches/Switch2.jpeg';
+import LAN from '../public/assets/Images/services/LAN.jpeg';
+import homeAutomation from '../public/assets/Images/automation/automated-home.jpg';
+import homeMotionVideo from '../public/assets/Video/automation/homeAutomationVideo2.mp4';
+import RenderingPC from '../public/assets/Images/services/RenderingPC.jpeg';
+import CCTV from '../public/assets/Images/services/CCTV.jpg';
+import Biometric from '../public/assets/Images/services/Biometric.jpg';
+import Contract from '../public/assets/Images/services/Contract.jpg';
+import CobLight from '../public/assets/Images/automation/lights/CobLight.jpg';
+import VoiceControlImg from '../public/assets/Images/automation/VoiceControl.jpeg';
+import colorAutomation from '../public/assets/Images/automation/switches/colorAutomation.jpeg';
+import TouchCurtain from '../public/assets/Images/automation/switches/TouchCurtain.jpeg';
+import SmartSwitch from '../public/assets/Images/automation/switches/Switch2.jpeg';
 
-import RetroDesign from './Video/automation/media4.mp4';
-// import VoiceControl from '../assets/Video/automation/VoiceControl.mp4';
-import wifiControl from './Video/automation/media3.mp4';
-import Scene from './Video/automation/SceneCreation.mp4';
+import RetroDesign from '../public/assets/Video/automation/media4.mp4';
+// import VoiceControl from '.../public/assets/assets/Video/automation/VoiceControl.mp4';
+import wifiControl from '../public/assets/Video/automation/media3.mp4';
+import Scene from '../public/assets/Video/automation/SceneCreation.mp4';
 
-import LivingInMotion from './Video/automation/LivingInMotion.mp4';
-import servicesVideo from './Video/services/Services.mp4';
-import TouchControlHome from './Video/automation/TouchControl.mp4';
-import Morning from './Video/automation/Morning.mp4';
+import LivingInMotion from '../public/assets/Video/automation/LivingInMotion.mp4';
+import servicesVideo from '../public/assets/Video/services/Services.mp4';
+import TouchControlHome from '../public/assets/Video/automation/TouchControl.mp4';
+import Morning from '../public/assets/Video/automation/Morning.mp4';
 
-import TRACKLIGHT from './Images/automation/lights/TRACK-COB-LIGHT.jpg'
-import DELTALIGHT from './Images/automation/lights/DELTA_COB_LIGHT.jpg'
-import DCLIGHT from './Images/automation/lights/DC-FLOOD-LIGHT.jpg'
-import OVALLIGHT from './Images/automation/lights/OVAL-LENS-STREET-LIGHT.jpg'
-import VITALIGHT from './Images/automation/lights/VITA-LENS-STREET-LIGHT.jpg'
-import SLIMLIGHT from './Images/automation/lights/SLIM-DOWN-LIGHT.jpg'
-import HIGHBAYLIGHT from './Images/automation/lights/HIGHBAY.jpg'
-import TouchDimmer from './Images/automation/switches/TouchDimmer.jpg'
-import VoiceControlGoogle from './Images/automation/VoiceControlGoogle.jpg'
-import About from './Images/automation/About.jpg'
-import SceneCreation from './Images/automation/switches/SceneControl.jpg'
-import ModeSwitch from './Images/automation/switches/ModeSwitch.jpeg'
-import LightOnOf from './Images/automation/switches/LightOnOf.jpeg'
-import HomeSwitch from './Images/automation/switches/HomeSwitch.jpeg'
-import Switch4 from './Images/automation/switches/Switch4.jpeg'
-import TouchFan from './Images/automation/switches/TouchFan.jpeg'
-import RoomSwitch from './Images/automation/switches/RoomSwitch.jpeg'
-import LampSwitch from './Images/automation/switches/LampSwitch.jpeg'
-import MultipleSwitch from './Images/automation/switches/MultipleSwitch.jpeg'
+import TRACKLIGHT from '../public/assets/Images/automation/lights/TRACK-COB-LIGHT.jpg'
+import DELTALIGHT from '../public/assets/Images/automation/lights/DELTA_COB_LIGHT.jpg'
+import DCLIGHT from '../public/assets/Images/automation/lights/DC-FLOOD-LIGHT.jpg'
+import OVALLIGHT from '../public/assets/Images/automation/lights/OVAL-LENS-STREET-LIGHT.jpg'
+import VITALIGHT from '../public/assets/Images/automation/lights/VITA-LENS-STREET-LIGHT.jpg'
+import SLIMLIGHT from '../public/assets/Images/automation/lights/SLIM-DOWN-LIGHT.jpg'
+import HIGHBAYLIGHT from '../public/assets/Images/automation/lights/HIGHBAY.jpg'
+import TouchDimmer from '../public/assets/Images/automation/switches/TouchDimmer.jpg'
+import VoiceControlGoogle from '../public/assets/Images/automation/VoiceControlGoogle.jpg'
+import About from '../public/assets/Images/automation/About.jpg'
+import SceneCreation from '../public/assets/Images/automation/switches/SceneControl.jpg'
+import ModeSwitch from '../public/assets/Images/automation/switches/ModeSwitch.jpeg'
+import LightOnOf from '../public/assets/Images/automation/switches/LightOnOf.jpeg'
+import HomeSwitch from '../public/assets/Images/automation/switches/HomeSwitch.jpeg'
+import Switch4 from '../public/assets/Images/automation/switches/Switch4.jpeg'
+import TouchFan from '../public/assets/Images/automation/switches/TouchFan.jpeg'
+import RoomSwitch from '../public/assets/Images/automation/switches/RoomSwitch.jpeg'
+import LampSwitch from '../public/assets/Images/automation/switches/LampSwitch.jpeg'
+import MultipleSwitch from '../public/assets/Images/automation/switches/MultipleSwitch.jpeg'
 
 
 
 //automation/gallery
-// import Lounge from '../assets/Images/Lounge.jpg'
-// import LivingRoom from '../assets/Images/LivingRoom.jpg'
-// import Bedroom from '../assets/Images/Bedroom.jpg'
-// import Exterior from '../assets/Images/Exterior.jpg'
+// import Lounge from '.../public/assets/assets/Images/Lounge.jpg'
+// import LivingRoom from '.../public/assets/assets/Images/LivingRoom.jpg'
+// import Bedroom from '.../public/assets/assets/Images/Bedroom.jpg'
+// import Exterior from '.../public/assets/assets/Images/Exterior.jpg'
 
-import Lounge from './Video/automation/media6.mp4'
-import LivingRoom from './Video/automation/media16.mp4'
-import VoiceControl from './Video/automation/media16L.mp4'
-import Bedroom from './Video/automation/TouchControl.mp4'
-import Exterior from './Video/automation/media3.mp4'
+import Lounge from '../public/assets/Video/automation/media6.mp4'
+import LivingRoom from '../public/assets/Video/automation/media16.mp4'
+import VoiceControl from '../public/assets/Video/automation/media16L.mp4'
+import Bedroom from '../public/assets/Video/automation/TouchControl.mp4'
+import Exterior from '../public/assets/Video/automation/media3.mp4'
 
 
-import glasSwitch from './Images/automation/switches/glass-switch.webp';
-import Curtains from './Images/automation/Curtains.jpg';
+import glasSwitch from '../public/assets/Images/automation/switches/glass-switch.webp';
+import Curtains from '../public/assets/Images/automation/Curtains.jpg';
 
-import homeLight from './Images/automation/homeLight.jpg';
+import homeLight from '../public/assets/Images/automation/homeLight.jpg';
 
-import PanelLight from './Images/automation/lights/PanelLight.webp';
+import PanelLight from '../public/assets/Images/automation/lights/PanelLight.webp';
 
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { homeAutomationData } from '../../../public/assets/data';
+import { homeAutomationData } from './../../data';
 import { HeroSection, FeatureGrid, SectionHeader, LazyVideo, FadeIn, CtaSec } from '../../components/Common';
 import {
   ArrowRight, Play, Check, MoveRight,

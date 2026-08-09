@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import {
   Mail, Phone, MapPin, Instagram, Twitter, Facebook, Linkedin, Send
 } from "lucide-react";
-import { footerData } from "../../public/assets/data";
-import PhoenixLogo from '../../public/assets/Logo/Logo.png';
+import { footerData } from "../data";
+import PhoenixLogo from '../../public/assets/Logo/logo.png';
 
 export const BASE_PATH = import.meta.env.SITE_PATH || "";
 
