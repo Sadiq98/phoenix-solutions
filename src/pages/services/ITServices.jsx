@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { itData } from '../../assets/data';
+import { itData } from '../../../public/assets/data';
 import { HeroSection, FeatureGrid, FadeIn, SectionHeader, LazyVideo, CtaSec } from '../../components/Common';
 import { ArrowRight, CheckCircle2, Play, Activity, MoveRight } from "lucide-react";
 import { Link } from 'react-router-dom'

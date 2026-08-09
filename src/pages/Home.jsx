@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Parallax } from "swiper/modules";
 
-import { phoenixData } from '../assets/data';
+import { phoenixData } from '../../public/assets/data';
 import { HeroSection, SectionHeader, FadeIn, LazyVideo, ContactForm, OfficeMap } from '../components/Common';
 import { ArrowRight, Globe, Shield, Calendar, Star, Quote, Play, CheckCircle2, MoveRight } from "lucide-react";
 import { Link } from 'react-router-dom';

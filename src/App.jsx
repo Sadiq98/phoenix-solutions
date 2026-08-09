@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ScrollToHash, ScrollToTop } from "./components/Common.jsx";
 import { FloatingWhatsApp } from '@digicroz/react-floating-whatsapp';
-import MyAvatar from './assets/Logo/Logo.png';
+import MyAvatar from '../public/assets/Logo/logo.png';
 export const BASE_PATH = import.meta.env.VITE_SITE_PATH || "";
 export const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "";
 

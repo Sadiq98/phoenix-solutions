@@ -11,7 +11,7 @@ export default defineConfig({
     react()
     , tailwindcss()
   ],
-  base: '/phoenix-solutions/', 
+  base: './', 
   
   build: {
     rollupOptions: {

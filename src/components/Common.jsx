@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { AnimatePresence, motion, useInView } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom'
-import { ctaSecData, contactConfig, phoenixData } from '../assets/data';
+import { ctaSecData, contactConfig, phoenixData } from '../../public/assets/data';
 import {
   Zap, Server, Smartphone, Mic, Wifi, Settings,
   ArrowRight, CheckCircle2, Play, Shield, Sun, Wind,

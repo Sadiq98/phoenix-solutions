@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { commonData } from '../assets/data';
+import { commonData } from '../../public/assets/data';
 import { ArrowRight, Check } from 'lucide-react';
 import { LazyVideo } from '../components/Common';
 import { motion, AnimatePresence } from "framer-motion";

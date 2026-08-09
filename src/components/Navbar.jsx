@@ -2,8 +2,8 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { navData } from "../assets/data";
-import PhoenixLogo from "../assets/Logo/Logo.png";
+import { navData } from "../../public/assets/data";
+import PhoenixLogo from "../../public/assets/Logo/Logo.png";
 
 export const BASE_PATH = import.meta.env.VITE_SITE_PATH || "";
 
